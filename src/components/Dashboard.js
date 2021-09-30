@@ -22,16 +22,29 @@ export const Dashboard = () => {
             <>
 
                 <div className="container">
-                    <div className="row">
-
-                        <div className="col-lg-12">
-                            <h2>Covid Status Dashboard</h2>
-                        </div>
+                    <div className="row">                       
 
                         <div className="col-lg-4">
-                            <h4>Date</h4>
-                            <p>{covidData.update_date_time}</p>
+                            <div className="boxed">
+                                <h4>Total Confirmed Cases</h4>
+                                <p>{covidData.local_total_cases}</p>
+                            </div>
+                        </div>
 
+
+                        <div className="col-lg-4">
+                            <div className="boxed">
+                                <h4>Total Recovered</h4>
+                                <p>{covidData.local_recovered}</p>
+                            </div>
+                        </div>
+
+
+                        <div className="col-lg-4">
+                            <div className="boxed">
+                                <h4>Total Deaths</h4>
+                                <p>{covidData.local_deaths}</p>
+                            </div>
                         </div>
 
 
