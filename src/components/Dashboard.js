@@ -1,6 +1,9 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 
+import Highcharts from 'highcharts'
+import HighchartsReact from 'highcharts-react-official'
+
 export const Dashboard = () => {
 
     const url = 'https://www.hpb.health.gov.lk/api/get-current-statistical'
@@ -16,6 +19,15 @@ export const Dashboard = () => {
     }, [url])
 
     console.log(covidData);
+
+    const options = {
+        series: [
+            {
+                name: 'Covid Patients',
+                data: [100,200,300,400,500]
+            }
+        ]
+    }
 
     if (covidData) {
         return (
@@ -111,6 +123,14 @@ export const Dashboard = () => {
 
 
 
+                </div>
+
+                <div className="container">
+                    <div className="row">
+                        <div className="col-12">
+                            <HighchartsReact highcharts={Highcharts} options={options} />
+                        </div>
+                    </div>
                 </div>
 
 
