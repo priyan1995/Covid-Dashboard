@@ -75,8 +75,8 @@ export const Dashboard = () => {
                             <div className="col-lg-4">
                                 <div className="boxed">
                                     <div>
-                                        <h4>Total Confirmed Cases</h4>
-                                        <p className="txt-warn">{covidData.local_total_cases}</p>
+                                        <h4>Local Active Cases</h4>
+                                        <p className="txt-warn">{covidData.local_active_cases}</p>
                                     </div>
                                 </div>
                             </div>
@@ -85,8 +85,8 @@ export const Dashboard = () => {
                             <div className="col-lg-4">
                                 <div className="boxed">
                                     <div>
-                                        <h4>Total Recovered</h4>
-                                        <p className="txt-succ">{covidData.local_recovered}</p>
+                                        <h4>Total New Cases</h4>
+                                        <p className="txt-succ">{covidData.local_new_cases}</p>
                                     </div>
                                 </div>
                             </div>
@@ -95,8 +95,8 @@ export const Dashboard = () => {
                             <div className="col-lg-4">
                                 <div className="boxed">
                                     <div>
-                                        <h4>Total Deaths</h4>
-                                        <p className="txt-dngr">{covidData.local_deaths}</p>
+                                        <h4>Local Deaths</h4>
+                                        <p className="txt-dngr">{covidData.local_new_deaths}</p>
                                     </div>
                                 </div>
                             </div>
@@ -105,7 +105,7 @@ export const Dashboard = () => {
                                 <p className="upd-dt"> Last updated at: {covidData.update_date_time}</p>
                             </div>
 
-                            
+
                         </div>
                     </div>
 
@@ -125,7 +125,8 @@ export const Dashboard = () => {
     return (
         <>
             <div>
-                <h2>Data Not Found</h2>
+                <br/>
+                <h2>Loading ....</h2>
             </div>
         </>
     )
