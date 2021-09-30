@@ -11,21 +11,40 @@ export const Dashboard = () => {
 
         axios.get(url).
             then(response => {
-
-                setCovidData(response.data)
-
+                setCovidData(response.data.data)
             })
-
     }, [url])
 
+    console.log(covidData);
 
     if (covidData) {
         return (
             <>
 
+                <div className="container">
+                    <div className="row">
 
-                <h2>Covid Status Dashboard</h2>
-                
+                        <div className="col-lg-12">
+                            <h2>Covid Status Dashboard</h2>
+                        </div>
+
+                        <div className="col-lg-4">
+                            <h4>Date</h4>
+                            <p>{covidData.update_date_time}</p>
+
+                        </div>
+
+
+
+
+
+                    </div>
+                </div>
+
+
+
+
+
 
 
 
