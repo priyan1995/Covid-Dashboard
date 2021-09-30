@@ -125,7 +125,7 @@ export const Dashboard = () => {
     return (
         <>
             <div>
-                <br/>
+                <br />
                 <h2>Loading ....</h2>
             </div>
         </>
