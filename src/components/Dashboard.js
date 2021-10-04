@@ -9,25 +9,61 @@ export const Dashboard = () => {
     const url = 'https://www.hpb.health.gov.lk/api/get-current-statistical'
 
     const [covidData, setCovidData] = useState(null)
+    const [covidChartData, setCovidChartData] = useState(null)
 
     useEffect(() => {
 
         axios.get(url).
             then(response => {
                 setCovidData(response.data.data)
+                //setCovidChartData(response.data.data.daily_pcr_testing_data)
+                setCovidChartData(response.data.data.daily_pcr_testing_data)                
+
             })
+            
+
+
+
     }, [url])
 
-    console.log(covidData);
+    //console.log(covidData);
+
+    //const datenw = covidChartData[date];
+
+    console.log(covidChartData);
+   // console.log(datenw);
+
+    
 
     const options = {
-        series: [
+        // series: [          
+        //     {
+        //         name: 'Covid Patients',
+        //         data: [100,200,300,400,500]
+        //      }
+        // ]
+
+        series:[
             {
-                name: 'Covid Patients',
-                data: [100,200,300,400,500]
+                name: 'Covid PCR Tests',
+                data:covidChartData
             }
         ]
+
+      
     }
+
+    
+
+    // axios.get('https://www.hpb.health.gov.lk/api/get-current-statistical', csv => {
+    //     data.daily_pcr_testing_data ={
+    //         csv            
+           
+    //     };
+    //     Highcharts.chart(options);
+       
+    // })
+  
 
     if (covidData) {
         return (
