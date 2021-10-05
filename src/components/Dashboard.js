@@ -10,7 +10,7 @@ export const Dashboard = () => {
 
 
     const [covidData, setCovidData] = useState(null)
-    //const [covidChartData, setCovidChartData] = useState(null)
+    // const [covidChartData, setCovidChartData] = useState(null)
     // const [chartData, setChartData] = useState(null)
     const [chartData, setChartData] = useState([])
     const [chartLabel, setChartLabel] = useState([])
