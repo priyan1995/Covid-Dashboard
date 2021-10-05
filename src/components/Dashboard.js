@@ -8,32 +8,38 @@ export const Dashboard = () => {
 
     const url = 'https://www.hpb.health.gov.lk/api/get-current-statistical'
 
+
     const [covidData, setCovidData] = useState(null)
     const [covidChartData, setCovidChartData] = useState(null)
+    // const [chartData, setChartData] = useState(null)
+    const [chartData, setChartData] = useState([])
+    const [chartLabel, setChartLabel] = useState([])
 
     useEffect(() => {
 
         axios.get(url).
             then(response => {
                 setCovidData(response.data.data)
-                //setCovidChartData(response.data.data.daily_pcr_testing_data)
-                setCovidChartData(response.data.data.daily_pcr_testing_data)                
+                //setCovidChartData(response.data.data.daily_pcr_testing_data[0].pcr_count)
+                setCovidChartData(response.data.data.daily_pcr_testing_data)      
+                
+                setChartLabel( response.data.data.daily_pcr_testing_data.map((row) => row.date))
+                setChartData( response.data.data.daily_pcr_testing_data.map((row2) => Number(row2.pcr_count)))
 
             })
-            
-
-
-
     }, [url])
+
 
     //console.log(covidData);
 
     //const datenw = covidChartData[date];
 
-    console.log(covidChartData);
-   // console.log(datenw);
+   // console.log(chartData);
 
-    
+
+
+
+
 
     const options = {
         // series: [          
@@ -43,27 +49,35 @@ export const Dashboard = () => {
         //      }
         // ]
 
-        series:[
+
+        series: [
             {
-                name: 'Covid PCR Tests',
-                data:covidChartData
+                name: chartLabel,
+                data: chartData
             }
         ]
 
-      
+
+
+
+
+
+
+
+
     }
 
-    
+
 
     // axios.get('https://www.hpb.health.gov.lk/api/get-current-statistical', csv => {
     //     data.daily_pcr_testing_data ={
     //         csv            
-           
+
     //     };
     //     Highcharts.chart(options);
-       
+
     // })
-  
+
 
     if (covidData) {
         return (
@@ -165,6 +179,15 @@ export const Dashboard = () => {
                     <div className="row">
                         <div className="col-12">
                             <HighchartsReact highcharts={Highcharts} options={options} />
+                        </div>
+                        <div className="col-12">
+
+
+                            {/* {                                
+                                covidChartData.map((cInfo) =>(
+                                    <p>{cInfo.date} </p>
+                                ))
+                            } */}
                         </div>
                     </div>
                 </div>
