@@ -10,7 +10,7 @@ export const Dashboard = () => {
 
 
     const [covidData, setCovidData] = useState(null)
-    const [covidChartData, setCovidChartData] = useState(null)
+    //const [covidChartData, setCovidChartData] = useState(null)
     // const [chartData, setChartData] = useState(null)
     const [chartData, setChartData] = useState([])
     const [chartLabel, setChartLabel] = useState([])
@@ -21,7 +21,7 @@ export const Dashboard = () => {
             then(response => {
                 setCovidData(response.data.data)
                 //setCovidChartData(response.data.data.daily_pcr_testing_data[0].pcr_count)
-                setCovidChartData(response.data.data.daily_pcr_testing_data)      
+               // setCovidChartData(response.data.data.daily_pcr_testing_data)      
                 
                 setChartLabel( response.data.data.daily_pcr_testing_data.map((row) => row.date))
                 setChartData( response.data.data.daily_pcr_testing_data.map((row2) => Number(row2.pcr_count)))
