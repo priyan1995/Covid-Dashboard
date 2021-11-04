@@ -1,5 +1,7 @@
 # Getting Started with Create React App
 
+Project Link: https://pd-covid-19-dashboard.netlify.app/
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
